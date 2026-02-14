@@ -2,23 +2,23 @@
 
 > *"A digital love letter that makes hearts flutter and browsers blush!"* 🌹
 
-## 🎯 What Is This?
+## What Is This?
 
 This is not just another website—it's a **full-blown romantic experience** crafted with code, caffeine, and a whole lot of love! 💖
 
 Imagine if Cupid learned to code and decided to build a website. Well, this is pretty much it! A stunning, interactive Valentine's Day website featuring:
 
-- 💌 **Animated Love Letters** that reveal heartfelt messages
-- 🐼 **Adorable Pandas** kissing (because why not?)
-- 📸 **Photo Galleries** showcasing your beautiful moments
-- ⏰ **Countdown Timer** to your special day
-- 💑 **Interactive Proposal** with a cheeky "No" button that runs away
-- 🎵 **Background Music** to set the mood
-- 📖 **Timeline** of your love story
-- 🎮 **Love Quiz** to test how well you know each other
-- 🎨 **Gorgeous Animations** that would make Disney jealous
+- **Animated Love Letters** that reveal heartfelt messages
+- **Adorable Pandas** kissing (because why not?)
+- **Photo Galleries** showcasing your beautiful moments
+- **Countdown Timer** to your special day
+- **Interactive Proposal** with a cheeky "No" button that runs away
+- **Background Music** to set the mood
+- **Timeline** of your love story
+- **Love Quiz** to test how well you know each other
+- **Gorgeous Animations** that would make Disney jealous
 
-## 📸 Project Screenshots
+## Project Screenshots
 
 ### Home Page
 ![Home Page](./public/GalleryImages/Screenshot%202026-02-14%20230622.png)
@@ -26,7 +26,7 @@ Imagine if Cupid learned to code and decided to build a website. Well, this is p
 ### Teddy Bear Animation
 ![Teddy Bear Animation](./public/GalleryImages/Screenshot%202026-02-14%20230634.png)
 
-## 🚀 Quick Start (Get This Love Show Running!)
+## Quick Start (Get This Love Show Running!)
 
 ### Prerequisites
 
@@ -83,10 +83,10 @@ Before you start spreading digital love, make sure you have:
 
 ### 📖 Our Story (Timeline)
 A beautiful vertical timeline showcasing your relationship milestones:
-- First Meeting ✨
-- First Date ☕
-- First Adventure 🗺️
-- Becoming Official 💑
+- First Meeting 
+- First Date 
+- First Adventure 
+- Becoming Official 
 - And more...
 
 ### 📸 Photo Album
