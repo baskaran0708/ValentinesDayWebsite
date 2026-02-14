@@ -1,26 +1,423 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fff0f3;
+  --foreground: #2d2d2d;
+
+  /* Romantic Color Palette */
+  --romantic-red: #ff4d6d;
+  --romantic-pink: #ff8fa3;
+  --romantic-light: #ffc2d1;
+  --romantic-lighter: #ffe5ec;
+  --romantic-white: #fff0f3;
+  --romantic-purple: #e0b0ff;
+
+  /* Fluid typography - scales with viewport */
+  --text-hero: clamp(2rem, 5vw + 1.5rem, 4.5rem);
+  --text-h1: clamp(1.75rem, 4vw + 1rem, 3.5rem);
+  --text-h2: clamp(1.5rem, 3vw + 0.75rem, 2.5rem);
+  --text-h3: clamp(1.25rem, 2vw + 0.5rem, 2rem);
+  --text-body: clamp(0.9375rem, 1vw + 0.5rem, 1.125rem);
+  --text-small: clamp(0.8125rem, 0.5vw + 0.5rem, 0.9375rem);
+
+  /* Safe areas for fixed header/nav/footer */
+  --safe-top: 5rem;
+  --safe-bottom: 6rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Custom romantic colors */
+  --color-romantic-red: var(--romantic-red);
+  --color-romantic-pink: var(--romantic-pink);
+  --color-romantic-light: var(--romantic-light);
+  --color-romantic-lighter: var(--romantic-lighter);
+  --color-romantic-white: var(--romantic-white);
+  --color-romantic-purple: var(--romantic-purple);
+
+  /* Fonts - classic romantic theme */
+  --font-heading: 'Pacifico', cursive;
+  --font-cursive: 'Great Vibes', cursive;
+  --font-body: 'Inter', sans-serif;
+  --font-romantic: 'Cormorant Garamond', serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-cormorant), 'Cormorant Garamond', serif;
+  overflow-x: hidden;
+  line-height: 1.65;
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-weight: 400;
+}
+
+/* Font utility classes - use next/font variables from layout */
+.font-heading {
+  font-family: var(--font-pacifico), 'Pacifico', cursive;
+}
+
+.font-cursive {
+  font-family: var(--font-great-vibes), 'Great Vibes', cursive;
+}
+
+.font-body {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+}
+
+/* Classic romantic serif - default for whole page */
+.font-romantic {
+  font-family: var(--font-cormorant), 'Cormorant Garamond', serif;
+}
+
+/* Section and layout spacing - prevent overlap with fixed nav/footer */
+.section-spacing {
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom);
+}
+
+.main-content {
+  padding-bottom: 2rem;
+}
+
+/* Animated Gradient Mesh Background */
+.gradient-mesh {
+  background: linear-gradient(135deg,
+      rgba(255, 77, 109, 0.08) 0%,
+      rgba(255, 143, 163, 0.12) 25%,
+      rgba(224, 176, 255, 0.08) 50%,
+      rgba(255, 194, 209, 0.12) 75%,
+      rgba(255, 77, 109, 0.08) 100%);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+@keyframes gradient-shift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Floating Heart Particles */
+.floating-particle {
+  position: absolute;
+  pointer-events: none;
+  animation: float-particle 20s linear infinite;
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(100vh) translateX(0) rotate(0deg) scale(0);
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 0.6;
+    transform: translateY(95vh) translateX(10px) rotate(45deg) scale(1);
+  }
+
+  95% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translateY(-10vh) translateX(-20px) rotate(360deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Premium Glassmorphism */
+.glass-premium {
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0.3) 100%);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.glass-premium::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg,
+      rgba(255, 77, 109, 0.6) 0%,
+      rgba(255, 143, 163, 0.8) 25%,
+      rgba(224, 176, 255, 0.6) 50%,
+      rgba(255, 194, 209, 0.8) 75%,
+      rgba(255, 77, 109, 0.6) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: border-glow 3s ease-in-out infinite;
+}
+
+@keyframes border-glow {
+
+  0%,
+  100% {
+    opacity: 0.8;
+    filter: brightness(1);
+  }
+
+  50% {
+    opacity: 1;
+    filter: brightness(1.3);
+  }
+}
+
+/* Staggered Text Reveal Animation */
+.text-reveal-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: reveal-word 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes reveal-word {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Particle Sparkle Effects */
+.particle-sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(255, 77, 109, 1) 0%, rgba(255, 143, 163, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sparkle-float 2s ease-out forwards;
+}
+
+@keyframes sparkle-float {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translate(var(--tx, 10px), var(--ty, -10px)) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(calc(var(--tx, 10px) * 2), calc(var(--ty, -10px) * 2)) scale(0.5);
+  }
+}
+
+/* Shimmer Effect */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 100%);
+  animation: shimmer-slide 3s ease-in-out infinite;
+}
+
+@keyframes shimmer-slide {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+/* Glassmorphism utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(255, 77, 109, 0.15);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Neumorphism utilities */
+.neuro-card {
+  background: linear-gradient(145deg, #fff5f7, #ffe0e6);
+  box-shadow: 8px 8px 16px #ffd4dc, -8px -8px 16px #ffffff;
+  border-radius: 20px;
+}
+
+.neuro-inset {
+  background: linear-gradient(145deg, #ffe0e6, #fff5f7);
+  box-shadow: inset 5px 5px 10px #ffd4dc, inset -5px -5px 10px #ffffff;
+  border-radius: 15px;
+}
+
+/* Glow effects */
+.glow-pink {
+  box-shadow: 0 0 20px rgba(255, 143, 163, 0.6), 0 0 40px rgba(255, 143, 163, 0.3);
+}
+
+.glow-red {
+  box-shadow: 0 0 20px rgba(255, 77, 109, 0.6), 0 0 40px rgba(255, 77, 109, 0.3);
+}
+
+/* Heart animations */
+@keyframes float-up {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes float-heart {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-float-heart {
+  animation-name: float-heart;
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(255, 77, 109, 0.8), 0 0 60px rgba(255, 143, 163, 0.5);
+  }
+}
+
+@keyframes sparkle {
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce-soft {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Heart cursor trail (optional) */
+.heart-cursor {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23ff4d6d"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>'), auto;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--romantic-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--romantic-pink), var(--romantic-red));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--romantic-red);
 }
